@@ -1,8 +1,6 @@
 import { HiMenuAlt2 } from 'react-icons/hi'
-import { HiHome } from 'react-icons/hi2'
 import { BsSunglasses } from 'react-icons/bs'
-import { GiWhiteBook, GiTakeMyMoney } from 'react-icons/gi'
-import { IoKeySharp, IoSettings, IoLogOut } from 'react-icons/io5'
+import { IoLogOut } from 'react-icons/io5'
 import { IoIosArrowBack } from 'react-icons/io'
 
 import MenuItem from './MenuItem'
@@ -11,40 +9,7 @@ import { useState } from 'react'
 import { useApartment } from 'context/ApartmentContext'
 import { useAuth } from 'context/AuthContext'
 
-const menus = [
-  {
-    name: 'Ana Sayfa',
-    icon: HiHome,
-    url: '/anasayfa'
-  },
-  {
-    name: 'İşletme Defteri',
-    icon: GiWhiteBook,
-    url: '/isletmedefteri'
-  },
-  {
-    name: 'Aidat',
-    icon: GiTakeMyMoney,
-    url: '/aidat',
-    manager: true
-  },
-  {
-    name: 'Yönetim',
-    icon: IoKeySharp,
-    url: '/yonetim',
-    manager: true
-  }
-]
-const profile = [
-  {
-    name: 'Ayarlar',
-    icon: IoSettings,
-    url: '/ayarlar',
-    manager: true
-  }
-]
-
-const Sidebar = () => {
+const Sidebar = ({ menus, profile }) => {
   const [profileMenu, setProfileMenu] = useState(false)
   const { apartment } = useApartment()
   const { role, logout } = useAuth()

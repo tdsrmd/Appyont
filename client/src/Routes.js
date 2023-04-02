@@ -1,4 +1,4 @@
-import { createBrowserRouter, createRoutesFromElements, Route, Navigate } from 'react-router-dom'
+import { Route, Navigate, Routes } from 'react-router-dom'
 
 //Layouts
 import Auth from 'layouts/Auth'
@@ -38,8 +38,8 @@ import ApartmentInfo from 'pages/Dashboard/Settings/ApartmentInfo'
 import ResidentsAuth from 'pages/Dashboard/Settings/ResidentsAuth'
 import ManagerInfo from 'pages/Dashboard/Settings/ManagerInfo'
 
-const Routes = createBrowserRouter(
-  createRoutesFromElements(
+const AllRoutes = () => (
+  <Routes>
     <Route path="/" element={<Root />}>
       <Route index element={<Navigate to="/anasayfa" replace />} />
       <Route path="/" element={<ProtectedRoutes />}>
@@ -76,7 +76,7 @@ const Routes = createBrowserRouter(
         <Route path="sifremiunuttum" element={<ForgetPassword />} />
       </Route>
     </Route>
-  )
+  </Routes>
 )
 
-export default Routes
+export default AllRoutes

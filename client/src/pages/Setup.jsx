@@ -31,23 +31,25 @@ const Setup = () => {
   const currentStep = steps[currentStepIndex]
 
   return (
-    <div className="grid grid-cols-[500px_auto] h-screen">
-      <div className="bg-setupback bg-cover bg-center col-center">
-        <div>
-          <Stepper step={currentStepIndex} numberOf={0} text="Apartman Ismi" descireption="Apartman ismini girin." />
-          <Stepper step={currentStepIndex} numberOf={1} text="Aidat" descireption="Aylık toplanan aidat miktarı." />
-          <Stepper step={currentStepIndex} numberOf={2} text="Kasa" descireption="Kasada bulunan miktar." />
-          <Stepper
-            step={currentStepIndex}
-            numberOf={3}
-            text="Hesap oluşturun"
-            descireption="Apartman sakinleri için hesap oluşturun."
-            finish
-          />
+    <div className="grid  xl:grid-cols-[500px_auto] h-screen">
+      <div className="bg-setupback bg-cover bg-center hidden xl:inline">
+        <div className="col-center h-full">
+          <div>
+            <Stepper step={currentStepIndex} numberOf={0} text="Apartman Ismi" descireption="Apartman ismini girin." />
+            <Stepper step={currentStepIndex} numberOf={1} text="Aidat" descireption="Aylık toplanan aidat miktarı." />
+            <Stepper step={currentStepIndex} numberOf={2} text="Kasa" descireption="Kasada bulunan miktar." />
+            <Stepper
+              step={currentStepIndex}
+              numberOf={3}
+              text="Hesap oluşturun"
+              descireption="Apartman sakinleri için hesap oluşturun."
+              finish
+            />
+          </div>
         </div>
       </div>
       <div className="row-center relative h-full">
-        <div className="w-3/6 flex flex-col gap-y-3">{currentStep}</div>
+        <div className="xl:w-3/6 flex flex-col gap-y-3 w-full">{currentStep}</div>
       </div>
     </div>
   )

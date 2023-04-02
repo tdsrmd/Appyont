@@ -29,7 +29,7 @@ const Home = () => {
 
   return (
     <div className="grid grid-cols-2 gap-5">
-      <div className="flex flex-col gap-y-5">
+      <div className="flex flex-col gap-y-5 col-span-2 xl:col-span-1">
         <Card title="Özet" badge="Mart">
           {!unPaidDues || !paidDues || !expenses ? (
             <div className="col-span-2">
@@ -68,7 +68,7 @@ const Home = () => {
         </Card>
       </div>
 
-      <div>
+      <div className="col-span-2 xl:col-span-1">
         <Card
           title={
             <span>

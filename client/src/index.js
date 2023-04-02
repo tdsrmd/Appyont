@@ -2,12 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './assets/styles/global.css'
 
-import { RouterProvider } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
+import { AuthContext } from 'context/AuthContext'
 import Routes from 'Routes'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <RouterProvider router={Routes} />
+    <BrowserRouter>
+      <AuthContext>
+        <Routes />
+      </AuthContext>
+    </BrowserRouter>
   </React.StrictMode>
 )

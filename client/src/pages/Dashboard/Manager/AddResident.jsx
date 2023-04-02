@@ -67,7 +67,7 @@ const AddResident = () => {
                   <Radio id="landlord" label="Ev Sahibi" name="role" value="landlord" />
                   <Radio id="tenant" label="Kiracı" name="role" value="tenant" />
                 </div>
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid xl:grid-cols-2 gap-5">
                   <Input name="firstName" placeholder="Dairede oturanın ismi" />
                   <Input name="lastName" placeholder="Dairede oturanın soyismi" />
                   <Input name="flatNumber" placeholder="Daire No" />

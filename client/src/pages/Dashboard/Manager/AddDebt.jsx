@@ -61,7 +61,7 @@ const AddDebt = () => {
                   <Radio label="Tüm Dairelere Borç Ekle" id="1" value="all" name="picket" />
                   <Radio label="Daire'ye Borç Ekle" id="2" value="singular" name="picket" />
                 </div>
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid xl:grid-cols-2 gap-5">
                   {!(values.picket === 'all') && (
                     <Select label="Daire Seçiniz" name="residentId" options={residentsOptions} />
                   )}

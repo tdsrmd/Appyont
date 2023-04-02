@@ -11,9 +11,11 @@ config()
 
 const app = express()
 
+const allowedOrigins = process.env.CLIENT_URL.split(',')
+console.log(allowedOrigins)
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: allowedOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
   })

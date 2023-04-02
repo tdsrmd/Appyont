@@ -58,8 +58,8 @@ const menus = [
 
 const Resident = () => {
   return (
-    <div className="grid grid-cols-[1fr,4fr]">
-      <div className="flex flex-col gap-y-5">
+    <div className="grid xl:grid-cols-[1fr,4fr]">
+      <div className="grid grid-cols-2 xl:grid-cols-1 gap-y-5 mb-5 xl:mb-0">
         {menus.map((menu, i) => (
           <VerticalMenuItem menu={menu} key={i} />
         ))}

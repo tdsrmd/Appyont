@@ -61,8 +61,8 @@ const ManagerInfo = () => {
           {({ isSubmitting }) => (
             <Form>
               <div className="flex flex-col gap-y-5">
-                <div className="grid grid-cols-2 gap-x-5">
-                  <div className="flex flex-col gap-y-5">
+                <div className="grid xl:grid-cols-2 gap-x-5">
+                  <div className="flex flex-col gap-y-5 mb-5 xl:mb-0">
                     <div>
                       <span className="text-xs font-semibold ml-1">İsim</span>
                       <Input name="firstName" />

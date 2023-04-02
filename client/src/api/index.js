@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-export const BASE_URL = 'http://localhost:5001/api/v1'
-// export const BASE_URL = 'https://apartmanyonetim.herokuapp.com/api/v1'
+// export const BASE_URL = 'http://localhost:5001/api/v1'
+export const BASE_URL = 'https://apartmanyonetim.herokuapp.com/api/v1'
 
 const API = axios.create({ baseURL: BASE_URL })
 

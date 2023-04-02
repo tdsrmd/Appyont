@@ -10,7 +10,7 @@ const Notebook = () => {
   const { expenses, debts } = useApartment()
 
   return (
-    <div className="grid grid-cols-3 gap-5">
+    <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-5">
       <div>
         <Card title="Gelir" badge="Mart">
           <LoadingData data={paidDues} />

@@ -11,7 +11,7 @@ const Card = (props) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.75 }}
-      className="bg-dgray-200 rounded-lg p-5"
+      className="bg-dgray-200 rounded-lg xl:p-5 p-3"
     >
       {(title || badge) && (
         <div className="flex justify-between items-center h-12">
@@ -34,7 +34,7 @@ const Container = (props) => {
 const Item = (props) => {
   const { title, badge, badgeColor = 'theme' } = props
   return (
-    <motion.div transition={{ duration: 0.75 }} layout className="bg-white rounded-lg p-5">
+    <motion.div transition={{ duration: 0.75 }} layout className="bg-white rounded-lg p-5 col-span-2 xl:col-span-1">
       <div className="font-medium h-full flex flex-col gap-y-3 items-center justify-between">
         <div className="text-center"> {title}</div>
         {badge && <Badge color={badgeColor} title={badge} />}
@@ -84,17 +84,16 @@ const Payment = (props) => {
 const CaseTransaction = ({ data }) => {
   const date = formatDate(data?.createdAt).split(' ')
   return (
-    <div className="bg-white rounded-lg p-5 col-span-2">
+    <div className="bg-white rounded-lg p-4 xl:p-5 col-span-2">
       <div className="flex gap-x-5">
         <div className="col-center border-r border-sgray-400 pr-4">
-          <span className="text-4xl">{date[0]}</span>
-          <span className="text-sgray-400 text-sm">{date[1]}</span>
-          <span className="text-sgray-400 text-sm">{date[3]}</span>
+          <span className="xl:text-4xl text-2xl">{date[0]}</span>
+          <span className="text-sgray-400 text-xs xl:text-sm">{date[1]}</span>
+          <span className="text-sgray-400 text-xs xl:text-sm">{date[3]}</span>
         </div>
-        <div className="flex flex-col justify-between w-full">
+        <div className="flex flex-col gap-y-2 justify-between w-full">
           <div className="flex justify-between items-center">
             <div className="">{data.description ? data.description : 'Aidat Ödedi'}</div>
-
             <Badge
               title={`${formatNumber(data.amount)} TL`}
               color="gray"

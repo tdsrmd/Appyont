@@ -34,7 +34,7 @@ const Register = () => {
   }
   return (
     <>
-      <div className="flex flex-col gap-y-6 w-[450px]">
+      <div className="flex flex-col gap-y-6 xl:w-[450px] w-full">
         <div className="flex flex-col gap-y-3">
           <h3 className="text-4xl font-semibold">Yönetici Hesabı Oluşturun</h3>
           <p className="text-sgray-400 font-medium text-sm">
@@ -75,7 +75,7 @@ const Register = () => {
           )}
         </Formik>
       </div>
-      <div className="absolute top-10 flex items-center justify-between w-[450px]">
+      <div className="absolute top-10 right-0 flex items-center justify-between xl:w-[450px]">
         <div className="bg-sgray-100 rounded-full p-4 cursor-pointer" onClick={() => navigate(-1)}>
           <IoIosArrowBack />
         </div>

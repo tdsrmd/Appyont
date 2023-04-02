@@ -57,7 +57,7 @@ const AddExpense = () => {
           {({ isSubmitting }) => (
             <Form>
               <div className="flex flex-col gap-y-5">
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid xl:grid-cols-2 gap-5">
                   <Select label="Gider Tipini Seçin" name="type" options={debtOptions} />
                   <Amount name="amount" placeholder="Tutar" />
                   <Input placeholder="Açıklama" name="description" />

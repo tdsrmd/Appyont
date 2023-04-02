@@ -11,15 +11,15 @@ const Headline = () => {
   return (
     <div className="flex justify-between items-center">
       <div className="">
-        <h3 className="font-semibold text-4xl mb-2">
+        <h3 className="font-semibold text-2xl xl:text-4xl xl:mb-2">
           {pathname.startsWith('/anasayfa') && 'Anasayfa'}
           {pathname.startsWith('/isletmedefteri') && 'İşletme Defteri'}
           {pathname.startsWith('/aidat') && 'Aidat'}
           {pathname.startsWith('/yonetim') && 'Yönetim'}
           {pathname.startsWith('/ayarlar') && 'Ayarlar'}
         </h3>
-        <div className="mt-4">
-          <Badge title={`${apartment?.name} Apartmanı`} className="font-light" color="theme" />
+        <div className="xl:mt-4">
+          <Badge title={`${apartment?.name} Apartmanı`} className="font-light xl:text-base text-xs" color="theme" />
         </div>
       </div>
       <div className="font-tange text-sm col-center">
@@ -30,7 +30,7 @@ const Headline = () => {
             exit={{ x: 300 }}
             className="py-2 px-4 bg-dgray-200 rounded-lg text-base col-center"
           >
-            <div className="flex items-center gap-x-1">
+            <div className="flex items-center gap-x-1 text-sm xl:text-base">
               <span>Kasa:</span>
               <motion.span
                 key={apartment?.till}

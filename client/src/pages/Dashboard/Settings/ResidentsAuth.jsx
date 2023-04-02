@@ -45,15 +45,15 @@ const ResidentsAuth = () => {
             <Form>
               <div className="flex flex-col gap-y-5">
                 <div className="col-center gap-2">
-                  <div className="w-1/2">
+                  <div className="w-full xl:w-1/2">
                     <span className="text-xs font-semibold ml-1">Kullanıcı Adı</span>
                     <Input name="username" />
                   </div>
-                  <div className="w-1/2">
+                  <div className="w-full xl:w-1/2">
                     <span className="text-xs font-semibold ml-1">Yeni Şifre</span>
                     <Input name="password" type="password" />
                   </div>
-                  <div className="w-1/2">
+                  <div className="w-full xl:w-1/2">
                     <span className="text-xs font-semibold ml-1">Yeni Şifre Tekrar</span>
                     <Input name="passwordAgain" type="password" />
                   </div>

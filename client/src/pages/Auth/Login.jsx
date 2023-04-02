@@ -13,15 +13,14 @@ const initialValues = {
 }
 
 const Login = () => {
-  const { setUser, setupInfo, setSetupInfo } = useAuth()
+  const { setupInfo, setSetupInfo, login } = useAuth()
   const [error, setError] = useState()
   const navigate = useNavigate()
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const { data } = await requests.auth.login(values)
-      setUser(data?.user)
-      localStorage.setItem('user', JSON.stringify(data?.user))
+      login(data?.user)
       navigate('/')
     } catch (error) {
       console.log(error)
@@ -34,7 +33,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-y-6 w-[450px]">
+      <div className="flex flex-col gap-y-6 xl:w-[450px] w-full">
         <div className="flex flex-col gap-y-5">
           <h3 className="text-4xl font-semibold">Yönetici Girişi Yap</h3>
           <p className="text-sgray-400 font-medium text-sm">
@@ -73,7 +72,7 @@ const Login = () => {
           )}
         </Formik>
       </div>
-      <div className="absolute top-10 w-[450px] flex items-center justify-between">
+      <div className="absolute top-10 right-0 xl:w-[450px] flex items-center justify-between">
         <span className="h-12"></span>
         <p className="text-sgray-400 text-sm font-semibold">
           Apartman Yöneticisi misiniz?

@@ -43,11 +43,11 @@ const ApartmentInfo = () => {
             <Form>
               <div className="flex flex-col gap-y-5">
                 <div className="col-center gap-2">
-                  <div className="w-1/2">
+                  <div className="w-full xl:w-1/2">
                     <span className="text-xs font-semibold ml-1">Apartmanın Adı</span>
                     <Input name="name" />
                   </div>
-                  <div className="w-1/2">
+                  <div className="w-full xl:w-1/2">
                     <span className="text-xs font-semibold ml-1">Aylık Toplanan Aidat Tutarı</span>
                     <Amount name="monthlyDuesAmount" />
                   </div>
