@@ -1,10 +1,10 @@
-import { useAuth } from 'context/AuthContext'
-import { Navigate, Outlet } from 'react-router-dom'
+import { useAuth } from "context/AuthContext";
+import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedRoutes = () => {
-  const { user } = useAuth()
+  const { user } = useAuth();
 
-  return user ? <Outlet /> : ''
-}
+  return user ? <Outlet /> : <Navigate to="/girisyap" replace />;
+};
 
-export default ProtectedRoutes
+export default ProtectedRoutes;
