@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* TODO: Kullanilmayan font weight sil */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@layer base {
+  body {
+    min-height: 100vh;
+    background-color: white;
+    color: #0b0b0b;
+  }
+}
+@layer components {
+  .row-center {
+    @apply flex justify-center items-center;
+  }
+  .col-center {
+    @apply flex justify-center items-center flex-col;
+  }
+  .absolute-center {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+  .button {
+    @apply rounded-md text-sm font-medium px-5 py-2.5 relative hover:opacity-80 inline-flex items-center gap-x-2
+    disabled:opacity-40 disabled:cursor-default;
+  }
+}

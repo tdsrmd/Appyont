@@ -1,0 +1,111 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mongodb"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    firstName String
+    lastName  String
+    username  String   @unique
+    password  String
+    createdAt DateTime @default(now())
+
+    apartment Apartment?
+}
+
+model ResidentsLogin {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    username  String   @unique
+    password  String
+    createdAt DateTime @default(now())
+
+    apartment   Apartment @relation(fields: [apartmentId], references: [id])
+    apartmentId String    @unique @db.ObjectId
+}
+
+model Apartment {
+    id                String   @id @default(auto()) @map("_id") @db.ObjectId
+    name              String
+    till              Int      @default(0)
+    monthlyDuesAmount Int      @default(0)
+    createdAt         DateTime @default(now())
+
+    manager        User            @relation(fields: [managerId], references: [id])
+    managerId      String          @unique @db.ObjectId
+    residents      Resident[]
+    dues           Dues[]
+    expenses       Expense[]
+    debts          Debt[]
+    residentsLogin ResidentsLogin?
+}
+
+model Resident {
+    id         String   @id @default(auto()) @map("_id") @db.ObjectId
+    flatNumber Int      @unique
+    firstName  String
+    lastName   String
+    phone      Int[]
+    carPlate   String?
+    role       role     @default(landlord)
+    createdAt  DateTime @default(now())
+
+    apartment   Apartment @relation(fields: [apartmentId], references: [id])
+    apartmentId String    @unique @db.ObjectId
+    debts       Debt[]
+    dues        Dues[]
+}
+
+model Dues {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    amount    Int
+    isPaid    Boolean
+    createdAt DateTime @default(now()) @updatedAt
+
+    resident    Resident   @relation(fields: [residentId], references: [id])
+    residentId  String     @unique @db.ObjectId
+    apartment   Apartment? @relation(fields: [apartmentId], references: [id])
+    apartmentId String?    @unique @db.ObjectId
+}
+
+model Expense {
+    id          String   @id @default(auto()) @map("_id") @db.ObjectId
+    amount      Int
+    description String
+    type        debtType @default(other)
+    createdAt   DateTime @default(now())
+
+    apartment   Apartment @relation(fields: [apartmentId], references: [id])
+    apartmentId String    @unique @db.ObjectId
+}
+
+model Debt {
+    id          String   @id @default(auto()) @map("_id") @db.ObjectId
+    amount      Float
+    description String
+    date        DateTime @default(now())
+    type        debtType @default(other)
+    createdAt   DateTime @default(now())
+
+    apartment   Apartment? @relation(fields: [apartmentId], references: [id])
+    apartmentId String?    @unique @db.ObjectId
+    resident    Resident?  @relation(fields: [residentId], references: [id])
+    residentId  String?    @unique @db.ObjectId
+}
+
+enum role {
+    tenant
+    landlord
+}
+
+enum debtType {
+    dues
+    bill
+    maintenance
+    repair
+    other
+}
