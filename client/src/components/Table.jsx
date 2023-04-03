@@ -7,7 +7,7 @@ import LoadingData from './LoadingData'
 import ToastAlert from './ToastAlert'
 import { AiFillCheckCircle } from 'react-icons/ai'
 import UpdateModal from './Modal/UpdateModal'
-import DeleteModal from './Modal/DeleteModal'
+import BasicModal from './Modal/BasicModal'
 
 const Table = ({
   headings,
@@ -92,10 +92,13 @@ const Item = ({
       style={{ gridTemplateColumns: gridColsArray }}
     >
       {deleteModal && (
-        <DeleteModal
+        <BasicModal
+          title="Silinsin mi?"
+          text="Bu işlem geri alınamaz. Veri her yerden kaldırılacak."
           loading={loading}
           onCancel={() => setDeleteModal(false)}
           onOk={() => handleDelete(item.id)}
+          okButtonText="Sil"
         />
       )}
       {updateModal && (

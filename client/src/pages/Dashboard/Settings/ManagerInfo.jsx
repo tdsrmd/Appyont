@@ -43,9 +43,6 @@ const ManagerInfo = () => {
       )
       resetForm({
         values: {
-          firstName: apartment.manager.firstName || '',
-          lastName: apartment.manager.lastName || '',
-          username: apartment.manager.username || '',
           password: '',
           passwordAgain: ''
         }

@@ -13,8 +13,8 @@ const MobileMenu = ({ menus }) => {
   return (
     <div className="xl:hidden fixed z-20 border-t border-gray-100 p-2 bottom-0 left-0 w-full bg-white flex items-center">
       <div className="flex items-center justify-between w-full">
-        {newMenu?.map((menu) => (
-          <MobileMenuItem menu={menu} />
+        {newMenu?.map((menu, i) => (
+          <MobileMenuItem menu={menu} key={i} />
         ))}
       </div>
       <div></div>

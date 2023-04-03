@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom'
 
 const MobileMenuItem = ({ menu }) => {
   const { icon: Icon, name, url } = menu
-  console.log(menu)
   return (
     <NavLink
       to={url}

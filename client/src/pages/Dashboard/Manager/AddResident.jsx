@@ -39,7 +39,6 @@ const AddResident = () => {
       }
       await requests.resident.newResident(body)
       mutate('listResidents')
-      mutate('listDues')
       mutate('listUnPaidDues')
       mutate('listPaidDues')
       toast(

@@ -49,7 +49,7 @@ const ListResidents = () => {
               ]}
               gridCols={['58px', '3fr', '2fr', '2fr', '1fr', 'auto']}
               data={newData}
-              mutateValues={['listResidents', 'listDues']}
+              mutateValues={['listResidents']}
               deleteFetchKeys={['resident', 'deleteResident']}
             />
           )}

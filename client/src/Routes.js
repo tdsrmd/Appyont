@@ -49,7 +49,7 @@ const AllRoutes = () => (
           <Route path="aidat" element={<Dues />} />
           <Route path="/" element={<ManagerProtectedRoutes />}>
             <Route path="yonetim" element={<Manager />}>
-              <Route index element={<Navigate to="daireekle" replace />} />
+              <Route index element={<Navigate to="daireekle" />} />
               <Route path="daireekle" element={<AddResident />} />
               <Route path="dairelerilistele" element={<ListResidents />} />
               <Route path="aidatverenler" element={<ListPaidDues />} />
@@ -60,10 +60,7 @@ const AllRoutes = () => (
               <Route path="giderlistele" element={<ListExpenses />} />
             </Route>
             <Route path="ayarlar" element={<Settings />}>
-              <Route
-                index
-                element={<Navigate to="apartmanbilgileri" replace />}
-              />
+              <Route index element={<Navigate to="apartmanbilgileri" />} />
               <Route path="apartmanbilgileri" element={<ApartmentInfo />} />
               <Route path="dairegirisbilgisi" element={<ResidentsAuth />} />
               <Route path="yoneticigirisbilgisi" element={<ManagerInfo />} />
@@ -72,7 +69,7 @@ const AllRoutes = () => (
         </Route>
       </Route>
       <Route path="kurulum" element={<Setup />} />
-      <Route element={<Auth />}>
+      <Route element={<Auth />} replace>
         <Route path="girisyap" element={<Login />} />
         <Route path="apartmansakinigirisyap" element={<ResidentLogin />} />
         <Route path="kayitol" element={<Register />} />

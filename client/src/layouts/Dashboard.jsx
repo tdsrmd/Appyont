@@ -9,7 +9,8 @@ import { SWRConfig } from 'swr'
 import { HiHome } from 'react-icons/hi2'
 import { GiWhiteBook, GiTakeMyMoney } from 'react-icons/gi'
 import { IoKeySharp, IoSettings } from 'react-icons/io5'
-import MobileMenu from 'components/MobileMenu'
+import MobileMenu from 'components/Mobile/MobileMenu'
+import MobileTopMenu from 'components/Mobile/MobileTopMenu'
 
 const swrOptions = {
   revalidateOnFocus: false
@@ -50,13 +51,14 @@ const Dashboard = () => {
   return (
     <SWRConfig value={swrOptions}>
       <ApartmentContext>
-        <div className="grid xl:grid-cols-[300px_auto] grid-rows-1 h-screen">
+        <div className="grid xl:grid-cols-[300px_auto] grid-rows-1 h-screen mt-8 lg:mt-0">
           <div className="hidden xl:block">
             <div className="w-[300px] fixed bg-white h-full">
               <Sidebar menus={menus} profile={profile} />
             </div>
           </div>
           <div className="flex flex-1 flex-col xl:p-12 pt-6">
+            <MobileTopMenu />
             <MobileMenu menus={menus} />
             <Headline />
             <div className="xl:pt-10 pt-5 pb-16 xl:pb-0">

@@ -8,8 +8,9 @@ import { useDues } from 'context/DuesContext'
 import { useApartment } from 'context/ApartmentContext'
 
 const Dues = () => {
-  const { dues, unPaidDues } = useDues()
-  const { apartment } = useApartment()
+  const { unPaidDues } = useDues()
+  const { apartment, residents } = useApartment()
+
   return (
     <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
       <div className="xl:col-span-2">
@@ -21,12 +22,12 @@ const Dues = () => {
             yaptığında kasaya otomatik eklenecektir.
           </span>
           <div className="col-span-5">
-            <LoadingData data={dues} />
-            {dues?.length < 1 && (
+            <LoadingData data={residents} />
+            {residents?.length < 1 && (
               <CardAlert text="daire" url="/yonetim/daireekle" />
             )}
             <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
-              {dues?.map((item) => (
+              {residents?.map((item) => (
                 <PayDues data={item} key={item.id} />
               ))}
             </div>
