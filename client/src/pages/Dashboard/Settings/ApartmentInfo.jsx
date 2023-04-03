@@ -24,7 +24,10 @@ const ApartmentInfo = () => {
       await requests.apartment.updateApartment(values)
       mutate('getApartment')
       toast(
-        <ToastAlert title={values.description} text="Başarılı bir şekilde güncellendi.">
+        <ToastAlert
+          title={values.description}
+          text="Başarılı bir şekilde güncellendi."
+        >
           <AiFillCheckCircle className="w-6 h-6 text-[#3ec786]" />
         </ToastAlert>
       )
@@ -38,17 +41,25 @@ const ApartmentInfo = () => {
   return (
     <Card title="Apartman Bilgileri">
       <Card.Container>
-        <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={updateApartment}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validationSchema={updateApartment}
+        >
           {({ isSubmitting }) => (
             <Form>
               <div className="flex flex-col gap-y-5">
                 <div className="col-center gap-2">
                   <div className="w-full xl:w-1/2">
-                    <span className="text-xs font-semibold ml-1">Apartmanın Adı</span>
+                    <span className="text-xs font-semibold ml-1">
+                      Apartmanın Adı
+                    </span>
                     <Input name="name" />
                   </div>
                   <div className="w-full xl:w-1/2">
-                    <span className="text-xs font-semibold ml-1">Aylık Toplanan Aidat Tutarı</span>
+                    <span className="text-xs font-semibold ml-1">
+                      Aylık Toplanan Aidat Tutarı
+                    </span>
                     <Amount name="monthlyDuesAmount" />
                   </div>
                 </div>

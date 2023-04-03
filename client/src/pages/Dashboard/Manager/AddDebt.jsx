@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useApartment } from 'context/ApartmentContext'
-import { Button, Input, Radio, Select, DatePicker, Amount } from 'components/Form'
+import {
+  Button,
+  Input,
+  Radio,
+  Select,
+  DatePicker,
+  Amount
+} from 'components/Form'
 import { Formik, Form } from 'formik'
 import { addDept } from 'schemas/debt'
 import Card from 'components/Card'
@@ -29,7 +36,9 @@ const AddDebt = () => {
   useEffect(() => {
     const residentsData = residents?.map((resident) => ({
       value: resident.id,
-      label: `${resident.flatNumber} ${resident.firstName.toUpperCase()} ${resident.lastName.toUpperCase()}`
+      label: `${
+        resident.flatNumber
+      } ${resident.firstName.toUpperCase()} ${resident.lastName.toUpperCase()}`
     }))
     setResidentsOptions(residentsData)
   }, [residents])
@@ -53,25 +62,53 @@ const AddDebt = () => {
   return (
     <Card title="Borç Ekle">
       <Card.Container>
-        <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={addDept}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validationSchema={addDept}
+        >
           {({ isSubmitting, values }) => (
             <Form>
               <div className="flex flex-col gap-y-5">
                 <div className="flex gap-x-3">
-                  <Radio label="Tüm Dairelere Borç Ekle" id="1" value="all" name="picket" />
-                  <Radio label="Daire'ye Borç Ekle" id="2" value="singular" name="picket" />
+                  <Radio
+                    label="Tüm Dairelere Borç Ekle"
+                    id="1"
+                    value="all"
+                    name="picket"
+                  />
+                  <Radio
+                    label="Daire'ye Borç Ekle"
+                    id="2"
+                    value="singular"
+                    name="picket"
+                  />
                 </div>
                 <div className="grid xl:grid-cols-2 gap-5">
                   {!(values.picket === 'all') && (
-                    <Select label="Daire Seçiniz" name="residentId" options={residentsOptions} />
+                    <Select
+                      label="Daire Seçiniz"
+                      name="residentId"
+                      options={residentsOptions}
+                    />
                   )}
-                  <Select label="Borç Tipini Seçin" name="type" options={debtOptions} />
+                  <Select
+                    label="Borç Tipini Seçin"
+                    name="type"
+                    options={debtOptions}
+                  />
                   <DatePicker name="date" />
                   <Amount placeholder="Tutar" name="amount" />
                   <Input placeholder="Açıklama" name="description" />
                 </div>
                 <div className="self-center">
-                  <Button text="Ekle" color="theme-500" type="submit" loading={isSubmitting} disabled={isSubmitting} />
+                  <Button
+                    text="Ekle"
+                    color="theme-500"
+                    type="submit"
+                    loading={isSubmitting}
+                    disabled={isSubmitting}
+                  />
                 </div>
               </div>
             </Form>

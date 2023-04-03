@@ -27,7 +27,8 @@
     "start": "react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "prettier": "^2.8.7",
     "tailwindcss": "^3.2.7"
   }
 }

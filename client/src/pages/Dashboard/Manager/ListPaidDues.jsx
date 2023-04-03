@@ -10,7 +10,9 @@ const ListPaidDues = () => {
   return (
     <div>
       <Card title="Aidatı Ödeyenler">
-        <span className="col-span-2 font-light text-sm text-gray-600">En son ödeme yapan daire en başta görünür.</span>
+        <span className="col-span-2 font-light text-sm text-gray-600">
+          En son ödeme yapan daire en başta görünür.
+        </span>
         {!paidDues ? (
           <LoadingData data={paidDues} />
         ) : paidDues?.length < 1 ? (
@@ -19,7 +21,7 @@ const ListPaidDues = () => {
             Bu ay hiç kimse aidat ödemedi
           </Alert>
         ) : (
-          <div className="col-span-2 grid grid-cols-5 gap-5">
+          <div className="col-span-2 grid grid-cols-4 xl:grid-cols-5 gap-5">
             {paidDues?.map((item) => (
               <Card.Item
                 title={item.flatNumber}

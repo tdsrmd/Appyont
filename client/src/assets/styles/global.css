@@ -8,6 +8,7 @@
     min-height: 100vh;
     background-color: white;
     color: #0b0b0b;
+    touch-action: pan-x pan-y;
   }
 }
 @layer components {

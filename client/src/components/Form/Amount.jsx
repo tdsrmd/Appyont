@@ -34,9 +34,17 @@ const Amount = ({ label, ...props }) => {
         onFocus={handleFocus}
         onInput={handleInput}
         onBlur={handleBlur}
-        value={field.value ? formatNumber(field.value) + (showTL && field.value ? ' TL' : '') : ''}
+        value={
+          field.value
+            ? formatNumber(field.value) + (showTL && field.value ? ' TL' : '')
+            : ''
+        }
       />
-      <ErrorMessage component="small" name={field?.name || 'unnamed'} className="text-red-500" />
+      <ErrorMessage
+        component="small"
+        name={field?.name || 'unnamed'}
+        className="text-red-500"
+      />
     </div>
   )
 }

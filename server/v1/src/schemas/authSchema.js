@@ -34,15 +34,20 @@ const newResidentsUsernameControl = Joi.object({
 
 const updateResidentsAuth = Joi.object({
   id: Joi.ObjectId().required(),
-  username: Joi.string().max(50),
+  username: Joi.string().max(50).required(),
   password: Joi.string().min(6).max(16),
-  passwordAgain: Joi.any().valid(Joi.ref('password'))
+  passwordAgain: Joi.any()
+    .valid(Joi.ref('password'))
+    .when('password', {
+      is: Joi.exist(),
+      then: Joi.string().valid(Joi.ref('password')).required()
+    })
 })
 
 const updateUser = Joi.object({
-  firstName: Joi.string().min(3).max(50),
-  lastName: Joi.string().min(3).max(30),
-  username: Joi.string().max(50),
+  firstName: Joi.string().min(3).max(50).required(),
+  lastName: Joi.string().min(3).max(30).required(),
+  username: Joi.string().max(50).required(),
   password: Joi.string().min(6).max(16),
   passwordAgain: Joi.any()
     .valid(Joi.ref('password'))

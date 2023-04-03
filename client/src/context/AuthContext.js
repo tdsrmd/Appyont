@@ -4,15 +4,22 @@ import { createContext, useContext, useEffect, useState } from 'react'
 const Context = createContext()
 
 export const AuthContext = ({ children }) => {
-  const [user, setUser] = useState(localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null)
+  const [user, setUser] = useState(
+    localStorage.getItem('user')
+      ? JSON.parse(localStorage.getItem('user'))
+      : null
+  )
   const [role, setRole] = useState()
   const [setupInfo, setSetupInfo] = useState(false)
 
   useEffect(() => {
-    const isUser = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null
+    const isUser = localStorage.getItem('user')
+      ? JSON.parse(localStorage.getItem('user'))
+      : null
     if (isUser?.token) {
       const decodedToken = jwtDecode(isUser.token)
-      const expirationDateTime = new Date(decodedToken.exp * 1000).getTime() / 1000
+      const expirationDateTime =
+        new Date(decodedToken.exp * 1000).getTime() / 1000
       const now = new Date().getTime() / 1000
       if (now > expirationDateTime) {
         logout()

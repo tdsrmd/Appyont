@@ -20,8 +20,16 @@ const Setup = () => {
 
   const steps = [
     <StepOne next={handleSubmit} data={data} />,
-    <StepTwo next={handleSubmit} data={data} prev={() => setCurrentStepIndex(currentStepIndex - 1)} />,
-    <StepThree next={handleSubmit} data={data} prev={() => setCurrentStepIndex(currentStepIndex - 1)} />,
+    <StepTwo
+      next={handleSubmit}
+      data={data}
+      prev={() => setCurrentStepIndex(currentStepIndex - 1)}
+    />,
+    <StepThree
+      next={handleSubmit}
+      data={data}
+      prev={() => setCurrentStepIndex(currentStepIndex - 1)}
+    />,
     <StepFour
       data={data}
       next={() => setCurrentStepIndex(currentStepIndex + 1)}
@@ -35,9 +43,24 @@ const Setup = () => {
       <div className="bg-setupback bg-cover bg-center hidden xl:inline">
         <div className="col-center h-full">
           <div>
-            <Stepper step={currentStepIndex} numberOf={0} text="Apartman Ismi" descireption="Apartman ismini girin." />
-            <Stepper step={currentStepIndex} numberOf={1} text="Aidat" descireption="Aylık toplanan aidat miktarı." />
-            <Stepper step={currentStepIndex} numberOf={2} text="Kasa" descireption="Kasada bulunan miktar." />
+            <Stepper
+              step={currentStepIndex}
+              numberOf={0}
+              text="Apartman Ismi"
+              descireption="Apartman ismini girin."
+            />
+            <Stepper
+              step={currentStepIndex}
+              numberOf={1}
+              text="Aidat"
+              descireption="Aylık toplanan aidat miktarı."
+            />
+            <Stepper
+              step={currentStepIndex}
+              numberOf={2}
+              text="Kasa"
+              descireption="Kasada bulunan miktar."
+            />
             <Stepper
               step={currentStepIndex}
               numberOf={3}
@@ -49,7 +72,9 @@ const Setup = () => {
         </div>
       </div>
       <div className="row-center relative h-full">
-        <div className="xl:w-3/6 flex flex-col gap-y-3 w-full">{currentStep}</div>
+        <div className="xl:w-3/6 flex flex-col gap-y-3 w-full">
+          {currentStep}
+        </div>
       </div>
     </div>
   )
@@ -58,9 +83,16 @@ const Setup = () => {
 export default Setup
 const StepOne = ({ next, data }) => {
   return (
-    <Formik initialValues={{ name: data?.name ? data.name : '' }} onSubmit={next} validationSchema={stepOne}>
+    <Formik
+      initialValues={{ name: data?.name ? data.name : '' }}
+      onSubmit={next}
+      validationSchema={stepOne}
+    >
       <Form className="flex flex-col gap-y-5">
-        <StepHeader text="Apartman ismi" descireption="Yöneticisi olduğunuz apartmanın ismini giriniz." />
+        <StepHeader
+          text="Apartman ismi"
+          descireption="Yöneticisi olduğunuz apartmanın ismini giriniz."
+        />
         <Input name="name" placeholder="" />
         <div className="self-end">
           <Button text="Devam" color="blue" type="submit">
@@ -74,7 +106,9 @@ const StepOne = ({ next, data }) => {
 const StepTwo = ({ next, prev, data }) => {
   return (
     <Formik
-      initialValues={{ monthlyDuesAmount: data?.monthlyDuesAmount ? data.monthlyDuesAmount : '' }}
+      initialValues={{
+        monthlyDuesAmount: data?.monthlyDuesAmount ? data.monthlyDuesAmount : ''
+      }}
       onSubmit={next}
       validationSchema={stepTwo}
     >
@@ -102,9 +136,16 @@ const StepTwo = ({ next, prev, data }) => {
 }
 const StepThree = ({ prev, data, next }) => {
   return (
-    <Formik initialValues={{ till: data?.till ? data.till : '' }} onSubmit={next} validationSchema={stepThree}>
+    <Formik
+      initialValues={{ till: data?.till ? data.till : '' }}
+      onSubmit={next}
+      validationSchema={stepThree}
+    >
       <Form className="flex flex-col gap-y-5">
-        <StepHeader text="Kasa" descireption="Şu anda kasada biriken tutarı giriniz." />
+        <StepHeader
+          text="Kasa"
+          descireption="Şu anda kasada biriken tutarı giriniz."
+        />
         <Input name="till" placeholder="Tutar" />
         <div className="flex justify-between items-center">
           <div className=" order-2">
@@ -189,7 +230,11 @@ const StepFour = ({ data, prev }) => {
           )}
           <Input name="username" placeholder="Kullanıcı Adı" />
           <Input name="password" placeholder="Şifre" type="password" />
-          <Input name="passwordAgain" placeholder="Şifre Tekrar" type="password" />
+          <Input
+            name="passwordAgain"
+            placeholder="Şifre Tekrar"
+            type="password"
+          />
           <div className="flex justify-between items-center">
             <div className="order-2">
               <Button
@@ -230,17 +275,25 @@ const Stepper = (props) => {
       <div className="flex items-center gap-x-5">
         <div
           className={`w-12 h-12 row-center rounded-lg ${
-            step === numberOf ? 'bg-theme-500 border border-theme-500' : 'border border-dashed border-white/30'
+            step === numberOf
+              ? 'bg-theme-500 border border-theme-500'
+              : 'border border-dashed border-white/30'
           }`}
         >
-          {step >= numberOf + 1 ? <BsCheckLg className="w-6 h-6 fill-theme-500" /> : numberOf + 1}
+          {step >= numberOf + 1 ? (
+            <BsCheckLg className="w-6 h-6 fill-theme-500" />
+          ) : (
+            numberOf + 1
+          )}
         </div>
         <div className="flex flex-col justify-between h-12">
           <h3 className="text-lg font-semibold">{text}</h3>
           <p className="text-xs text-white/30">{descireption}</p>
         </div>
       </div>
-      {!finish && <div className="border-l border-dashed border-white/30 block h-12 ml-6 my-0.5"></div>}
+      {!finish && (
+        <div className="border-l border-dashed border-white/30 block h-12 ml-6 my-0.5"></div>
+      )}
     </div>
   )
 }

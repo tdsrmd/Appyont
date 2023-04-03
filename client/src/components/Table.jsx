@@ -9,7 +9,14 @@ import { AiFillCheckCircle } from 'react-icons/ai'
 import UpdateModal from './Modal/UpdateModal'
 import DeleteModal from './Modal/DeleteModal'
 
-const Table = ({ headings, data, gridCols, mutateValues, deleteFetchKeys, actions = true }) => {
+const Table = ({
+  headings,
+  data,
+  gridCols,
+  mutateValues,
+  deleteFetchKeys,
+  actions = true
+}) => {
   const gridColsArray = React.useMemo(
     () =>
       gridCols.reduce((acc, cur) => {
@@ -49,7 +56,13 @@ const Table = ({ headings, data, gridCols, mutateValues, deleteFetchKeys, action
   )
 }
 
-const Item = ({ item, gridColsArray, mutateValues, deleteFetchKeys, actions = true }) => {
+const Item = ({
+  item,
+  gridColsArray,
+  mutateValues,
+  deleteFetchKeys,
+  actions = true
+}) => {
   const [loading, setLoading] = React.useState(false)
   const [deleteModal, setDeleteModal] = React.useState(false)
   const [updateModal, setUpdateModal] = React.useState(false)
@@ -79,9 +92,15 @@ const Item = ({ item, gridColsArray, mutateValues, deleteFetchKeys, actions = tr
       style={{ gridTemplateColumns: gridColsArray }}
     >
       {deleteModal && (
-        <DeleteModal loading={loading} onCancel={() => setDeleteModal(false)} onOk={() => handleDelete(item.id)} />
+        <DeleteModal
+          loading={loading}
+          onCancel={() => setDeleteModal(false)}
+          onOk={() => handleDelete(item.id)}
+        />
       )}
-      {updateModal && <UpdateModal data={item} onCancel={() => setUpdateModal(false)} />}
+      {updateModal && (
+        <UpdateModal data={item} onCancel={() => setUpdateModal(false)} />
+      )}
 
       {Object.entries(item)?.map(([key, value]) => {
         if (key === 'id') return null

@@ -37,12 +37,18 @@ const Home = () => {
             </div>
           ) : (
             <>
-              <Card.Item title="Aidat Ödemeyen Daire Sayısı" badge={unPaidDues?.length?.toString()} />
+              <Card.Item
+                title="Aidat Ödemeyen Daire Sayısı"
+                badge={unPaidDues?.length?.toString()}
+              />
               <Card.Item
                 title="Kasaya Giren Toplam Para"
                 badge={`${paidDues?.length * apartment?.monthlyDuesAmount} TL`}
               />
-              <Card.Item title="Kasadan Çıkan Toplam Para" badge={totalExpenses()} />
+              <Card.Item
+                title="Kasadan Çıkan Toplam Para"
+                badge={totalExpenses()}
+              />
               <Card.Item title="Toplam Borç Tutarı" badge={totalDebts()} />
             </>
           )}

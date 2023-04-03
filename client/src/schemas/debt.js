@@ -2,7 +2,9 @@ import * as Yup from 'yup'
 
 const addDept = Yup.object({
   picket: Yup.string(),
-  amount: Yup.number().typeError('Bu alana sadece sayı giriniz.').required('Bu alan boş bırakılamaz.'),
+  amount: Yup.number()
+    .typeError('Bu alana sadece sayı giriniz.')
+    .required('Bu alan boş bırakılamaz.'),
   date: Yup.date().required('Bu alan boş bırakılamaz.'),
   type: Yup.string().required('Bu alan boş bırakılamaz.'),
   description: Yup.string()

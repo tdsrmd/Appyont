@@ -69,9 +69,13 @@ const Sidebar = ({ menus, profile }) => {
               {role === 'manager' ? (
                 <h3 className="font-bold text-sm capitalize">{`${apartment?.manager?.firstName} ${apartment?.manager?.lastName}`}</h3>
               ) : (
-                <h3 className="font-bold text-sm capitalize">{apartment?.name}</h3>
+                <h3 className="font-bold text-sm capitalize">
+                  {apartment?.name}
+                </h3>
               )}
-              <p className="text-xs text-sgray-400">{role === 'manager' ? 'Apartman Yöneticisi' : 'Apartman Sakini'}</p>
+              <p className="text-xs text-sgray-400">
+                {role === 'manager' ? 'Apartman Yöneticisi' : 'Apartman Sakini'}
+              </p>
             </div>
           </div>
         </div>

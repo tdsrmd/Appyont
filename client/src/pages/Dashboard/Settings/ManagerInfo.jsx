@@ -34,7 +34,10 @@ const ManagerInfo = () => {
       await requests.auth.updateUser(body)
       mutate('getApartment')
       toast(
-        <ToastAlert title={values.description} text="Başarılı bir şekilde güncellendi.">
+        <ToastAlert
+          title={values.description}
+          text="Başarılı bir şekilde güncellendi."
+        >
           <AiFillCheckCircle className="w-6 h-6 text-[#3ec786]" />
         </ToastAlert>
       )
@@ -57,7 +60,11 @@ const ManagerInfo = () => {
   return (
     <Card title="Yönetici Giriş Bilgisi">
       <Card.Container>
-        <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={updateManager}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validationSchema={updateManager}
+        >
           {({ isSubmitting }) => (
             <Form>
               <div className="flex flex-col gap-y-5">
@@ -68,21 +75,29 @@ const ManagerInfo = () => {
                       <Input name="firstName" />
                     </div>
                     <div>
-                      <span className="text-xs font-semibold ml-1">Soyisim</span>
+                      <span className="text-xs font-semibold ml-1">
+                        Soyisim
+                      </span>
                       <Input name="lastName" />
                     </div>
                   </div>
                   <div className="flex flex-col gap-y-5">
                     <div>
-                      <span className="text-xs font-semibold ml-1">Kullanıcı Adı</span>
+                      <span className="text-xs font-semibold ml-1">
+                        Kullanıcı Adı
+                      </span>
                       <Input name="username" />
                     </div>
                     <div>
-                      <span className="text-xs font-semibold ml-1">Yeni Şifre</span>
+                      <span className="text-xs font-semibold ml-1">
+                        Yeni Şifre
+                      </span>
                       <Input name="password" type="password" />
                     </div>
                     <div>
-                      <span className="text-xs font-semibold ml-1">Yeni Şifre Tekrar</span>
+                      <span className="text-xs font-semibold ml-1">
+                        Yeni Şifre Tekrar
+                      </span>
                       <Input name="passwordAgain" type="password" />
                     </div>
                   </div>

@@ -25,7 +25,11 @@ const DatePicker = () => {
         }}
         onChange={handleChange}
       />
-      <ErrorMessage component="small" name={field?.name || 'unnamed'} className="text-red-500" />
+      <ErrorMessage
+        component="small"
+        name={field?.name || 'unnamed'}
+        className="text-red-500"
+      />
     </div>
   )
 }

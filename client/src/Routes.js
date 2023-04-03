@@ -60,7 +60,10 @@ const AllRoutes = () => (
               <Route path="giderlistele" element={<ListExpenses />} />
             </Route>
             <Route path="ayarlar" element={<Settings />}>
-              <Route index element={<Navigate to="apartmanbilgileri" replace />} />
+              <Route
+                index
+                element={<Navigate to="apartmanbilgileri" replace />}
+              />
               <Route path="apartmanbilgileri" element={<ApartmentInfo />} />
               <Route path="dairegirisbilgisi" element={<ResidentsAuth />} />
               <Route path="yoneticigirisbilgisi" element={<ManagerInfo />} />

@@ -40,14 +40,18 @@ const PayDues = ({ data }) => {
       <label
         htmlFor={data.resident.flatNumber}
         className={`w-full inline-flex gap-y-2 justify-center items-center flex-col text-center p-5 rounded-lg cursor-pointer ${
-          duesPaid ? 'bg-theme-400 text-gray-600 hover:opacity-80' : 'bg-white hover:bg-gray-50 hover:text-gray-600 '
+          duesPaid
+            ? 'bg-theme-400 text-gray-600 hover:opacity-80'
+            : 'bg-white hover:bg-gray-50 hover:text-gray-600 '
         }`}
       >
         <div className="text-4xl">{data.resident.flatNumber}</div>
         <Badge
           color={duesPaid ? '' : 'theme'}
           className="text-sm font-medium"
-          title={`${data?.resident?.firstName} ${data?.resident?.lastName.charAt(0)}.`}
+          title={`${
+            data?.resident?.firstName
+          } ${data?.resident?.lastName.charAt(0)}.`}
         />
       </label>
       {loading && (

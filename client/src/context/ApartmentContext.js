@@ -26,9 +26,13 @@ export const ApartmentContext = ({ children }) => {
   )
   const { data: lastTransactionsData } = useSWR(
     'lastTransactions',
-    async () => await requests.apartment.lastTransactions().then((res) => res.data)
+    async () =>
+      await requests.apartment.lastTransactions().then((res) => res.data)
   )
-  const { data: debtsData } = useSWR('listDebts', async () => await requests.debt.listDebts().then((res) => res.data))
+  const { data: debtsData } = useSWR(
+    'listDebts',
+    async () => await requests.debt.listDebts().then((res) => res.data)
+  )
 
   useEffect(() => {
     if (apartmentData) setApartment(apartmentData)
@@ -36,7 +40,13 @@ export const ApartmentContext = ({ children }) => {
     if (expensesData) setExpenses(expensesData)
     if (debtsData) setDebts(debtsData)
     if (lastTransactionsData) setLastTransactions(lastTransactionsData)
-  }, [apartmentData, debtsData, residentData, expensesData, lastTransactionsData])
+  }, [
+    apartmentData,
+    debtsData,
+    residentData,
+    expensesData,
+    lastTransactionsData
+  ])
 
   useEffect(() => {
     const status = error?.response?.status
@@ -46,15 +56,28 @@ export const ApartmentContext = ({ children }) => {
     }
   }, [error])
 
-  if (!apartmentData || !residentData || !expensesData || !lastTransactionsData || !debtsData)
+  if (
+    !apartmentData ||
+    !residentData ||
+    !expensesData ||
+    !lastTransactionsData ||
+    !debtsData
+  )
     return (
-      <div className="absolute-center col-center gap-y-3">
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 col-center gap-y-3">
         <span className="font-light">Yükleniyor</span>
         <Spinner className="w-5 h-5" />
       </div>
     )
 
-  const data = { apartment, residents, setResidents, expenses, lastTransactions, debts }
+  const data = {
+    apartment,
+    residents,
+    setResidents,
+    expenses,
+    lastTransactions,
+    debts
+  }
   return <Context.Provider value={data}>{children}</Context.Provider>
 }
 

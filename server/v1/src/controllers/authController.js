@@ -172,7 +172,7 @@ const updateResidentsAuth = async (req, res) => {
   try {
     const { id, username, password } = req.body
 
-    const hashedPassword = await bcrypt.hash(password, 10)
+    const hashedPassword = password && (await bcrypt.hash(password, 10))
 
     const updateResidentsAuth = await prisma.residentsLogin.update({
       where: { id },

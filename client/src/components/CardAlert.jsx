@@ -7,7 +7,8 @@ const CardAlert = ({ text, url }) => {
       <div className="font-light text-sgray-500 bg-theme p-5 rounded-lg col-center">
         <IoAlertOutline className="w-10 h-10" />
         <div className="mt-2">
-          Kayıtlı {text} bulunamadı. <span className="capitalize">{text}</span> eklemek için
+          Kayıtlı {text} bulunamadı. <span className="capitalize">{text}</span>{' '}
+          eklemek için
           <Link to={url}>
             <span className=" font-medium text-black"> tıklayın</span>
           </Link>

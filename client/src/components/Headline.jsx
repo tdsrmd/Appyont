@@ -11,7 +11,7 @@ const Headline = () => {
   return (
     <div className="flex justify-between items-center">
       <div className="">
-        <h3 className="font-semibold text-2xl xl:text-4xl xl:mb-2">
+        <h3 className="font-semibold text-2xl xl:text-4xl xl:mb-2 mb-1">
           {pathname.startsWith('/anasayfa') && 'Anasayfa'}
           {pathname.startsWith('/isletmedefteri') && 'İşletme Defteri'}
           {pathname.startsWith('/aidat') && 'Aidat'}
@@ -19,7 +19,11 @@ const Headline = () => {
           {pathname.startsWith('/ayarlar') && 'Ayarlar'}
         </h3>
         <div className="xl:mt-4">
-          <Badge title={`${apartment?.name} Apartmanı`} className="font-light xl:text-base text-xs" color="theme" />
+          <Badge
+            title={`${apartment?.name} Apartmanı`}
+            className="font-light xl:text-base text-xs"
+            color="theme"
+          />
         </div>
       </div>
       <div className="font-tange text-sm col-center">

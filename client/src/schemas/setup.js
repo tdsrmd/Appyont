@@ -21,7 +21,9 @@ const stepThree = Yup.object({
 })
 
 const stepFour = Yup.object({
-  username: Yup.string().required('Bu alan boş bırakılamaz.').matches(/^\S*$/, 'Boşluk içeremez.'),
+  username: Yup.string()
+    .required('Bu alan boş bırakılamaz.')
+    .matches(/^\S*$/, 'Boşluk içeremez.'),
   password: Yup.string()
     .required('Bu alan boş bırakılamaz.')
     .min(6, 'Şifreniz en az 6 karakter içermeli')

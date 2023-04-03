@@ -10,7 +10,9 @@ const ListDebt = () => {
 
   const newData = debts?.map((item) => ({
     ...item,
-    flatNumber: <div className="text-center font-semibold">{item.flatNumber}</div>,
+    flatNumber: (
+      <div className="text-center font-semibold">{item.flatNumber}</div>
+    ),
     type: whatType(item.type),
     date: formatDateNoHour(item.date),
     createdAt: formatDateNoHour(item.createdAt)
@@ -26,8 +28,25 @@ const ListDebt = () => {
             <CardAlert text="borç" url="/yonetim/borcekle" />
           ) : (
             <Table
-              headings={['Daire No', 'İsim Soyisim', 'Fiyat', 'Açıklama', 'Tip', 'Borç Tarihi', 'Oluşturuldu']}
-              gridCols={['58px', '3fr', '1fr', '3fr', '1fr', '2fr', '2fr', 'auto']}
+              headings={[
+                'Daire No',
+                'İsim Soyisim',
+                'Fiyat',
+                'Açıklama',
+                'Tip',
+                'Borç Tarihi',
+                'Oluşturuldu'
+              ]}
+              gridCols={[
+                '58px',
+                '3fr',
+                '1fr',
+                '3fr',
+                '1fr',
+                '2fr',
+                '2fr',
+                'auto'
+              ]}
               data={newData}
               mutateValues={['listDebts']}
               deleteFetchKeys={['debt', 'deleteDebt']}

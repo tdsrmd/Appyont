@@ -43,14 +43,19 @@ const AddResident = () => {
       mutate('listUnPaidDues')
       mutate('listPaidDues')
       toast(
-        <ToastAlert text="Başarılı bir şekilde silindi." title={values.firstName}>
+        <ToastAlert
+          text="Başarılı bir şekilde eklendi."
+          title={values.firstName}
+        >
           <AiFillCheckCircle className="w-6 h-6 text-[#3ec786]" />
         </ToastAlert>
       )
       resetForm()
     } catch (error) {
       console.log(error)
-      error.response.status === 409 ? toast.error(error.response.data.message) : toast.error('Bir hata oluştu.')
+      error.response.status === 409
+        ? toast.error(error.response.data.message)
+        : toast.error('Bir hata oluştu.')
     } finally {
       setSubmitting(false)
     }
@@ -59,17 +64,34 @@ const AddResident = () => {
   return (
     <Card title="Yeni Daire Ekle">
       <Card.Container>
-        <Formik initialValues={initialState} onSubmit={handleSubmit} validationSchema={newResident}>
+        <Formik
+          initialValues={initialState}
+          onSubmit={handleSubmit}
+          validationSchema={newResident}
+        >
           {({ isSubmitting }) => (
             <Form>
               <div className="flex flex-col gap-y-5">
                 <div className="flex gap-x-5">
-                  <Radio id="landlord" label="Ev Sahibi" name="role" value="landlord" />
-                  <Radio id="tenant" label="Kiracı" name="role" value="tenant" />
+                  <Radio
+                    id="landlord"
+                    label="Ev Sahibi"
+                    name="role"
+                    value="landlord"
+                  />
+                  <Radio
+                    id="tenant"
+                    label="Kiracı"
+                    name="role"
+                    value="tenant"
+                  />
                 </div>
                 <div className="grid xl:grid-cols-2 gap-5">
                   <Input name="firstName" placeholder="Dairede oturanın ismi" />
-                  <Input name="lastName" placeholder="Dairede oturanın soyismi" />
+                  <Input
+                    name="lastName"
+                    placeholder="Dairede oturanın soyismi"
+                  />
                   <Input name="flatNumber" placeholder="Daire No" />
                   <PhoneInput name="phone" placeholder="Telefon Numarası" />
                   <Input name="carPlate" placeholder="Araç Plakası" />
@@ -77,7 +99,10 @@ const AddResident = () => {
                     <PhoneInput name="phone2" placeholder="Telefon Numarası" />
                   ) : (
                     <div className="text-sm text-amber-800">
-                      <span className="cursor-pointer" onClick={() => setOneMorePhone(true)}>
+                      <span
+                        className="cursor-pointer"
+                        onClick={() => setOneMorePhone(true)}
+                      >
                         Bir telefon numarası daha ekle.
                       </span>
                     </div>

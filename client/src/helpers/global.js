@@ -43,7 +43,11 @@ const whatType = (value) => {
 }
 
 const whatRole = (value) => {
-  return value === 'landlord' ? 'Ev Sahibi' : value === 'tenant' ? 'Kiracı' : 'Diğer'
+  return value === 'landlord'
+    ? 'Ev Sahibi'
+    : value === 'tenant'
+    ? 'Kiracı'
+    : 'Diğer'
 }
 
 const formatAmount = (value) => {
@@ -91,7 +95,9 @@ const formatPhoneNumber = (value) => {
   if (!typeof value === 'undefined') return ''
   return value.length >= 1
     ? value.map((p, i) => {
-        const phoneNumber = p.toString().replace(/(\d{3})(\d{3})(\d{2})(\d{2})/, '$1 $2 $3 $4')
+        const phoneNumber = p
+          .toString()
+          .replace(/(\d{3})(\d{3})(\d{2})(\d{2})/, '$1 $2 $3 $4')
         return (
           <div className="text-sm" key={i}>
             0{phoneNumber}
@@ -106,8 +112,30 @@ const numberToTurkishWords = (value) => {
 
   if (num === 0) return 'sıfır'
 
-  const ones = ['', 'bir', 'İki', 'üç', 'dört', 'beş', 'altı', 'yedi', 'sekiz', 'dokuz']
-  const tens = ['', 'on', 'yirmi', 'otuz', 'kırk', 'elli', 'altmış', 'yetmiş', 'seksen', 'doksan']
+  const ones = [
+    '',
+    'bir',
+    'İki',
+    'üç',
+    'dört',
+    'beş',
+    'altı',
+    'yedi',
+    'sekiz',
+    'dokuz'
+  ]
+  const tens = [
+    '',
+    'on',
+    'yirmi',
+    'otuz',
+    'kırk',
+    'elli',
+    'altmış',
+    'yetmiş',
+    'seksen',
+    'doksan'
+  ]
 
   let words = ''
 

@@ -11,7 +11,9 @@ const VerticalMenuItem = ({ menu }) => {
               <NavLink
                 key={i}
                 to={item.url}
-                className={({ isActive }) => (isActive ? 'text-theme-500 ' : 'text-sgray-500 ')}
+                className={({ isActive }) =>
+                  isActive ? 'text-theme-500 ' : 'text-sgray-500 '
+                }
               >
                 {item.title}
               </NavLink>

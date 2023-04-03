@@ -38,15 +38,18 @@ const Register = () => {
         <div className="flex flex-col gap-y-3">
           <h3 className="text-4xl font-semibold">Yönetici Hesabı Oluşturun</h3>
           <p className="text-sgray-400 font-medium text-sm">
-            Sadece yöneticiler kayıt olabilir. Yöneticiniz size giriş için apartman sakini kullanıcı adı ve şifrenizi
-            verecektir.
+            Sadece yöneticiler kayıt olabilir. Yöneticiniz size giriş için
+            apartman sakini kullanıcı adı ve şifrenizi verecektir.
           </p>
         </div>
         {error && (
           <div className="bg-dpurple text-sblack p-3 text-sm rounded-lg">
-            <div className="font-semibold">Kullanıcı adı başkası tarafından kullanılıyor.</div>
+            <div className="font-semibold">
+              Kullanıcı adı başkası tarafından kullanılıyor.
+            </div>
             <div>
-              Kayıt bilgileriniz gözden geçirip tekrar deneyiniz. Eğer bu kullanıcı zaten sizseniz
+              Kayıt bilgileriniz gözden geçirip tekrar deneyiniz. Eğer bu
+              kullanıcı zaten sizseniz
               <Link to="/girisyap">
                 <span className="font-bold"> Giriş Yapabilir </span>
               </Link>
@@ -58,7 +61,11 @@ const Register = () => {
             </div>
           </div>
         )}
-        <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={registerSchema}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validationSchema={registerSchema}
+        >
           {({ isSubmitting }) => (
             <Form className="flex flex-col gap-y-5">
               <div className="grid grid-cols-2 gap-x-5">
@@ -67,16 +74,28 @@ const Register = () => {
               </div>
               <Input name="username" placeholder="Kullanıcı adı" />
               <Input name="password" placeholder="Şifre" type="password" />
-              <Input name="passwordAgain" placeholder="Şifre Tekrar" type="password" />
+              <Input
+                name="passwordAgain"
+                placeholder="Şifre Tekrar"
+                type="password"
+              />
               <div>
-                <Button text="Kayıt Ol" type="submit" disabled={isSubmitting} loading={isSubmitting} />
+                <Button
+                  text="Kayıt Ol"
+                  type="submit"
+                  disabled={isSubmitting}
+                  loading={isSubmitting}
+                />
               </div>
             </Form>
           )}
         </Formik>
       </div>
       <div className="absolute top-10 right-0 flex items-center justify-between xl:w-[450px]">
-        <div className="bg-sgray-100 rounded-full p-4 cursor-pointer" onClick={() => navigate(-1)}>
+        <div
+          className="bg-sgray-100 rounded-full p-4 cursor-pointer"
+          onClick={() => navigate(-1)}
+        >
           <IoIosArrowBack />
         </div>
         <p className="text-sgray-400 text-sm font-semibold">

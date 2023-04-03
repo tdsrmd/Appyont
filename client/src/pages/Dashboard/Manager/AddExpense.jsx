@@ -36,7 +36,10 @@ const AddExpense = () => {
       mutate('getApartment')
       mutate('lastTransactions')
       toast(
-        <ToastAlert title={values.description} text="Başarılı bir şekilde eklendi">
+        <ToastAlert
+          title={values.description}
+          text="Başarılı bir şekilde eklendi"
+        >
           <AiFillCheckCircle className="w-6 h-6 text-[#3ec786]" />
         </ToastAlert>
       )
@@ -50,15 +53,24 @@ const AddExpense = () => {
   return (
     <Card title="Gider Ekle">
       <span className="col-span-2 font-light text-sm text-gray-600">
-        Yeni bir gider eklediğinizde eklediğiniz miktar kasadan otomatik olarak düşecektir.
+        Yeni bir gider eklediğinizde eklediğiniz miktar kasadan otomatik olarak
+        düşecektir.
       </span>
       <Card.Container>
-        <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={newExpense}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validationSchema={newExpense}
+        >
           {({ isSubmitting }) => (
             <Form>
               <div className="flex flex-col gap-y-5">
                 <div className="grid xl:grid-cols-2 gap-5">
-                  <Select label="Gider Tipini Seçin" name="type" options={debtOptions} />
+                  <Select
+                    label="Gider Tipini Seçin"
+                    name="type"
+                    options={debtOptions}
+                  />
                   <Amount name="amount" placeholder="Tutar" />
                   <Input placeholder="Açıklama" name="description" />
                 </div>

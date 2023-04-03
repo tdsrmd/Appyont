@@ -7,18 +7,21 @@ import { useApartment } from 'context/ApartmentContext'
 
 const ListExpenses = () => {
   const { expenses } = useApartment()
-  const newData = expenses?.map(({ id, amount, description, type, createdAt }) => ({
-    id,
-    amount: `${amount} TL`,
-    description,
-    type: whatType(type),
-    createdAt: formatDate(createdAt)
-  }))
+  const newData = expenses?.map(
+    ({ id, amount, description, type, createdAt }) => ({
+      id,
+      amount: `${amount} TL`,
+      description,
+      type: whatType(type),
+      createdAt: formatDate(createdAt)
+    })
+  )
   return (
     <div>
       <Card title="Giderler">
         <span className="col-span-2 font-light text-sm text-gray-600">
-          Bir gideri sildiğinizde, sildiğiniz miktar kasaya otomatik olarak eklenecektir.
+          Bir gideri sildiğinizde, sildiğiniz miktar kasaya otomatik olarak
+          eklenecektir.
         </span>
         <Card.Container>
           {!expenses ? (

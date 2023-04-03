@@ -1,46 +1,23 @@
-import { useAuth } from 'context/AuthContext'
-import React, { useRef } from 'react'
-import MenuItem from './MenuItem'
-import { IoMdClose } from 'react-icons/io'
-import { IoLogOut } from 'react-icons/io5'
-import { useClickOutside } from 'hooks/clickOutSide'
+import MobileMenuItem from './MobileMenuItem'
+import { IoSettings } from 'react-icons/io5'
 
-const MobileMenu = ({ menus, profile, onCancel }) => {
-  const { role, logout } = useAuth()
-  const ref = useRef()
-  useClickOutside(ref, onCancel)
-  const isManager = role === 'manager'
+const MobileMenu = ({ menus }) => {
+  const newMenu = [
+    ...menus,
+    {
+      name: 'Ayarlar',
+      icon: IoSettings,
+      url: '/ayarlar'
+    }
+  ]
   return (
-    <div
-      ref={ref}
-      className="fixed z-20 shadow-2xl top-0 left-0 py-5 px-2 h-screen w-3/4 bg-white flex flex-col justify-between"
-    >
-      <div className="absolute right-3 top-3" onClick={onCancel}>
-        <IoMdClose className="h-5 w-5" />
+    <div className="xl:hidden fixed z-20 border-t border-gray-100 p-2 bottom-0 left-0 w-full bg-white flex items-center">
+      <div className="flex items-center justify-between w-full">
+        {newMenu?.map((menu) => (
+          <MobileMenuItem menu={menu} />
+        ))}
       </div>
-      <div>
-        {menus.map((item, i) => {
-          if (item.manager && !isManager) {
-            return null
-          }
-          return <MenuItem item={item} key={i} onClick={onCancel} />
-        })}
-      </div>
-      <div>
-        {profile.map((item, i) => {
-          if (item.manager && !isManager) {
-            return null
-          }
-          return <MenuItem item={item} key={i} onClick={onCancel} />
-        })}
-        <div
-          onClick={logout}
-          className="flex items-center gap-x-2 hover:bg-theme/50 p-4 hover:rounded-2xl text-dblue-100 cursor-pointer"
-        >
-          <IoLogOut className="w-5 h-5 fill-current" />
-          <span className="text-sm font-medium">Çıkış Yap</span>
-        </div>
-      </div>
+      <div></div>
     </div>
   )
 }

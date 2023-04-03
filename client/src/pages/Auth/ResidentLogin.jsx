@@ -41,21 +41,34 @@ const ResidentLogin = () => {
         </div>
         {error && (
           <div className="text-sblack p-3 text-sm rounded-lg bg-dpurple">
-            <div className="font-semibold">Kullanıcı adı ya da Şifre hatalı.</div>
+            <div className="font-semibold">
+              Kullanıcı adı ya da Şifre hatalı.
+            </div>
             <div>Giriş bilgileriniz gözden geçirip tekrar deneyiniz.</div>
           </div>
         )}
-        <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={loginSchema}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validationSchema={loginSchema}
+        >
           {({ isSubmitting }) => (
             <Form className="flex flex-col gap-y-5">
               <Input name="username" placeholder="Kullanıcı adınız" />
               <Input name="password" type="password" placeholder="Şifreniz" />
 
               <Link to="/girisyap" className="self-end">
-                <div className="text-sblue text-sm font-medium">Yönetici Girişi Yap</div>
+                <div className="text-sblue text-sm font-medium">
+                  Yönetici Girişi Yap
+                </div>
               </Link>
               <div>
-                <Button text="Giriş Yap" type="submit" disabled={isSubmitting} loading={isSubmitting} />
+                <Button
+                  text="Giriş Yap"
+                  type="submit"
+                  disabled={isSubmitting}
+                  loading={isSubmitting}
+                />
               </div>
             </Form>
           )}

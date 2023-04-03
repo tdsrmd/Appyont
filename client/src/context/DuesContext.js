@@ -9,7 +9,10 @@ export const DuesContext = ({ children }) => {
   const [paidDues, setPaidDues] = useState()
   const [unPaidDues, setUnPaidDues] = useState()
 
-  const { data: listDues } = useSWR('listDues', async () => await requests.dues.listDues().then((res) => res.data))
+  const { data: listDues } = useSWR(
+    'listDues',
+    async () => await requests.dues.listDues().then((res) => res.data)
+  )
   const { data: listPaidDues } = useSWR(
     'listPaidDues',
     async () => await requests.dues.paidDues().then((res) => res.data)

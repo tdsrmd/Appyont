@@ -19,14 +19,15 @@ API.interceptors.request.use((req) => {
 
 const requests = {
   auth: {
-    login: (body) => API.post('/auth/login', body, { withCredentials: true }),
-    refreshToken: () => API.get('/auth/refreshToken', { withCredentials: true }),
+    login: (body) => API.post('/auth/login', body),
+    refreshToken: () => API.get('/auth/refreshToken'),
     residentLogin: (body) => API.post('/auth/residentLogin', body),
     register: (body) => API.post('/auth/register', body),
     residentsRegister: (body) => API.post('/auth/residentsRegister', body),
     updateResidentsAuth: (body) => API.put('/auth/updateResidentsAuth', body),
     updateUser: (body) => API.put('/auth/updateUser', body),
-    newResidentsUsernameControl: (body) => API.post('/auth/newResidentsUsernameControl', body)
+    newResidentsUsernameControl: (body) =>
+      API.post('/auth/newResidentsUsernameControl', body)
   },
   apartment: {
     newApartment: (body) => API.post('/apartment', body),

@@ -7,22 +7,30 @@ import { formatCarPlate, formatPhoneNumber, whatRole } from 'helpers/global'
 const ListResidents = () => {
   const { residents } = useApartment()
 
-  const newData = residents?.map(({ id, flatNumber, firstName, lastName, phone, carPlate, role }) => {
-    const formattedPhone = formatPhoneNumber(phone)
-    const formattedCarPlate = formatCarPlate(carPlate)
-    return {
-      id,
-      flatNumber: <div className="text-center font-semibold">{flatNumber}</div>,
-      nameSurname: (
-        <div className="capitalize">
-          {firstName} {lastName}
-        </div>
-      ),
-      phone: <div className="col-center">{formattedPhone}</div>,
-      carPlate: <div className="text-center">{carPlate ? formattedCarPlate : '-'}</div>,
-      role: whatRole(role)
+  const newData = residents?.map(
+    ({ id, flatNumber, firstName, lastName, phone, carPlate, role }) => {
+      const formattedPhone = formatPhoneNumber(phone)
+      const formattedCarPlate = formatCarPlate(carPlate)
+      return {
+        id,
+        flatNumber: (
+          <div className="text-center font-semibold">{flatNumber}</div>
+        ),
+        nameSurname: (
+          <div className="capitalize">
+            {firstName} {lastName}
+          </div>
+        ),
+        phone: <div className="col-center">{formattedPhone}</div>,
+        carPlate: (
+          <div className="text-center">
+            {carPlate ? formattedCarPlate : '-'}
+          </div>
+        ),
+        role: whatRole(role)
+      }
     }
-  })
+  )
 
   return (
     <div>

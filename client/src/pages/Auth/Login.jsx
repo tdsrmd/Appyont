@@ -42,31 +42,48 @@ const Login = () => {
         </div>
         {error && (
           <div className="text-sblack p-3 text-sm rounded-lg bg-dpurple">
-            <div className="font-semibold">Kullanıcı adı ya da Şifre hatalı.</div>
+            <div className="font-semibold">
+              Kullanıcı adı ya da Şifre hatalı.
+            </div>
             <div>Giriş bilgileriniz gözden geçirip tekrar deneyiniz.</div>
           </div>
         )}
         {setupInfo && (
           <div className="text-sblack p-3 text-sm rounded-lg bg-dpurple">
-            <div className="font-semibold">Başırılı bir şekilde kayıt oldunuz.</div>
+            <div className="font-semibold">
+              Başırılı bir şekilde kayıt oldunuz.
+            </div>
             <div>Lütfen kayıt olduğunuz bilgilerle giriş yapınız.</div>
           </div>
         )}
-        <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={loginSchema}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validationSchema={loginSchema}
+        >
           {({ isSubmitting }) => (
             <Form className="flex flex-col gap-y-5">
               <Input name="username" placeholder="Kullanıcı adınız" />
               <Input name="password" type="password" placeholder="Şifreniz" />
               <div className="flex justify-between items-center">
                 <Link to="/apartmansakinigirisyap" className="self-end">
-                  <div className="text-sblue text-sm font-medium">Apartman Sakini Girişi Yap</div>
+                  <div className="text-sblue text-sm font-medium">
+                    Apartman Sakini Girişi Yap
+                  </div>
                 </Link>
                 <Link to="/sifremiunuttum" className="">
-                  <div className="text-sgray-500 text-sm font-medium">Şifremi Unuttum</div>
+                  <div className="text-sgray-500 text-sm font-medium">
+                    Şifremi Unuttum
+                  </div>
                 </Link>
               </div>
               <div>
-                <Button text="Giriş Yap" type="submit" disabled={isSubmitting} loading={isSubmitting} />
+                <Button
+                  text="Giriş Yap"
+                  type="submit"
+                  disabled={isSubmitting}
+                  loading={isSubmitting}
+                />
               </div>
             </Form>
           )}

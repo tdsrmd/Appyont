@@ -22,10 +22,20 @@ const ResidentsAuth = () => {
   }
 
   const handleSubmit = async (values, { setSubmitting }) => {
+    const body = {
+      id: values.id,
+      username: values.username,
+      password: values.password ? values.password : undefined,
+      passwordAgain: values.passwordAgain ? values.passwordAgain : undefined
+    }
+
     try {
-      await requests.auth.updateResidentsAuth(values)
+      await requests.auth.updateResidentsAuth(body)
       toast(
-        <ToastAlert title={values.description} text="Başarılı bir şekilde güncellendi.">
+        <ToastAlert
+          title={values.description}
+          text="Başarılı bir şekilde güncellendi."
+        >
           <AiFillCheckCircle className="w-6 h-6 text-[#3ec786]" />
         </ToastAlert>
       )
@@ -40,21 +50,31 @@ const ResidentsAuth = () => {
   return (
     <Card title="Daire Giriş Bilgisi">
       <Card.Container>
-        <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={residentsAuth}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validationSchema={residentsAuth}
+        >
           {({ isSubmitting }) => (
             <Form>
               <div className="flex flex-col gap-y-5">
                 <div className="col-center gap-2">
                   <div className="w-full xl:w-1/2">
-                    <span className="text-xs font-semibold ml-1">Kullanıcı Adı</span>
+                    <span className="text-xs font-semibold ml-1">
+                      Kullanıcı Adı
+                    </span>
                     <Input name="username" />
                   </div>
                   <div className="w-full xl:w-1/2">
-                    <span className="text-xs font-semibold ml-1">Yeni Şifre</span>
+                    <span className="text-xs font-semibold ml-1">
+                      Yeni Şifre
+                    </span>
                     <Input name="password" type="password" />
                   </div>
                   <div className="w-full xl:w-1/2">
-                    <span className="text-xs font-semibold ml-1">Yeni Şifre Tekrar</span>
+                    <span className="text-xs font-semibold ml-1">
+                      Yeni Şifre Tekrar
+                    </span>
                     <Input name="passwordAgain" type="password" />
                   </div>
                 </div>

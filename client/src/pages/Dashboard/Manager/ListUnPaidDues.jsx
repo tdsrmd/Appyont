@@ -9,7 +9,9 @@ const ListUnPaidDues = () => {
   return (
     <div>
       <Card title="Aidatı Ödemeyenler">
-        <span className="col-span-2 font-light text-sm text-gray-600">Daire numarasına göre listelenir.</span>
+        <span className="col-span-2 font-light text-sm text-gray-600">
+          Daire numarasına göre listelenir.
+        </span>
         {!unPaidDues ? (
           <LoadingData data={unPaidDues} />
         ) : unPaidDues?.length < 1 ? (
@@ -18,7 +20,7 @@ const ListUnPaidDues = () => {
             Bu ay tüm daireler aidat verdi
           </Alert>
         ) : (
-          <div className="col-span-2 grid grid-cols-5 gap-5">
+          <div className="col-span-2 grid grid-cols-4 xl:grid-cols-5 gap-5">
             {unPaidDues?.map((item) => (
               <Card.Item
                 title={item.flatNumber}

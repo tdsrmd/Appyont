@@ -5,13 +5,13 @@ import Badge from './Badge'
 import { motion } from 'framer-motion'
 
 const Card = (props) => {
-  const { title, badge, children } = props
+  const { title, badge, children, className } = props
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.75 }}
-      className="bg-dgray-200 rounded-lg xl:p-5 p-3"
+      className={`${className} bg-dgray-200 rounded-lg xl:p-5 p-3`}
     >
       {(title || badge) && (
         <div className="flex justify-between items-center h-12">
@@ -28,13 +28,19 @@ const Card = (props) => {
   )
 }
 const Container = (props) => {
-  return <div className="bg-white col-span-2 rounded-lg p-5">{props.children}</div>
+  return (
+    <div className="bg-white col-span-2 rounded-lg p-5">{props.children}</div>
+  )
 }
 
 const Item = (props) => {
   const { title, badge, badgeColor = 'theme' } = props
   return (
-    <motion.div transition={{ duration: 0.75 }} layout className="bg-white rounded-lg p-5 col-span-2 xl:col-span-1">
+    <motion.div
+      transition={{ duration: 0.75 }}
+      layout
+      className="bg-white rounded-lg p-5 col-span-2 xl:col-span-1"
+    >
       <div className="font-medium h-full flex flex-col gap-y-3 items-center justify-between">
         <div className="text-center"> {title}</div>
         {badge && <Badge color={badgeColor} title={badge} />}
@@ -59,18 +65,36 @@ const Payment = (props) => {
         <div className="flex flex-col justify-center w-full">
           <div className="flex justify-between items-center">
             <div className="flex flex-col gap-y-2">
-              <div className="">{data.description ? data.description : 'Aidat Ödendi'}</div>
+              <div className="">
+                {data.description ? data.description : 'Aidat Ödendi'}
+              </div>
               {income ? (
                 <div className="flex items-center gap-x-1">
-                  <Badge title={`Daire:${data?.flatNumber}`} className="text-xs" color="yellow" />
-                  <Badge title={`${data?.firstName} ${data?.lastName.charAt(0)}.`} className="text-xs" color="yellow" />
+                  <Badge
+                    title={`Daire:${data?.flatNumber}`}
+                    className="text-xs"
+                    color="yellow"
+                  />
+                  <Badge
+                    title={`${data?.firstName} ${data?.lastName.charAt(0)}.`}
+                    className="text-xs"
+                    color="yellow"
+                  />
                 </div>
               ) : (
-                <Badge title={`Tip: ${whatType(data?.type)}`} className="text-xs" color="yellow" />
+                <Badge
+                  title={`Tip: ${whatType(data?.type)}`}
+                  className="text-xs"
+                  color="yellow"
+                />
               )}
             </div>
             <Badge
-              title={data.amount ? `${data.amount} TL` : `${apartment.monthlyDuesAmount} TL`}
+              title={
+                data.amount
+                  ? `${data.amount} TL`
+                  : `${apartment.monthlyDuesAmount} TL`
+              }
               color={infoBadgeColor}
               className="font-medium text-center text-sm"
             />
@@ -93,7 +117,9 @@ const CaseTransaction = ({ data }) => {
         </div>
         <div className="flex flex-col gap-y-2 justify-between w-full">
           <div className="flex justify-between items-center">
-            <div className="">{data.description ? data.description : 'Aidat Ödedi'}</div>
+            <div className="">
+              {data.description ? data.description : 'Aidat Ödedi'}
+            </div>
             <Badge
               title={`${formatNumber(data.amount)} TL`}
               color="gray"
@@ -106,19 +132,26 @@ const CaseTransaction = ({ data }) => {
                 <Badge
                   title={
                     <span>
-                      Daire No: <span className="font-medium">{data?.resident?.flatNumber}</span>
+                      Daire No:{' '}
+                      <span className="font-medium">
+                        {data?.resident?.flatNumber}
+                      </span>
                     </span>
                   }
                   color="theme"
                 />
-                <Badge title={`${data?.resident?.firstName} ${data?.resident?.lastName}`} color="purple" />
+                <Badge
+                  title={`${data?.resident?.firstName} ${data?.resident?.lastName}`}
+                  color="purple"
+                />
               </div>
             ) : (
               <div className="flex gap-x-2">
                 <Badge
                   title={
                     <span>
-                      Tip: <span className="font-medium">{whatType(data.type)}</span>
+                      Tip:{' '}
+                      <span className="font-medium">{whatType(data.type)}</span>
                     </span>
                   }
                   color="theme"
@@ -141,13 +174,23 @@ const Arrears = ({ data }) => {
           <div className="flex justify-between items-center">
             <div className="flex flex-col gap-y-2">
               <div className="flex items-center gap-x-3">
-                {data.nameSurname} <span className="text-gray-300 text-xs">•</span> Daire:{data.flatNumber}
+                {data.nameSurname}{' '}
+                <span className="text-gray-300 text-xs">•</span> Daire:
+                {data.flatNumber}
               </div>
               <div>
-                <Badge title={data.description} className="text-xs" color="yellow" />
+                <Badge
+                  title={data.description}
+                  className="text-xs"
+                  color="yellow"
+                />
               </div>
             </div>
-            <Badge title={`${data.amount} TL`} color="gray" className="font-medium text-center text-sm" />
+            <Badge
+              title={`${data.amount} TL`}
+              color="gray"
+              className="font-medium text-center text-sm"
+            />
           </div>
         </div>
       </div>

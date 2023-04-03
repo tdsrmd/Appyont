@@ -5,7 +5,7 @@ const Badge = (props) => {
 
   return (
     <div
-      className={`${className} ${colorClasses[color]} capitalize  xl:px-4  xl:py-2 xl:text-sm rounded-lg inline text-xs`}
+      className={`${className} ${colorClasses[color]} capitalize px-4 py-2 xl:text-sm rounded-lg inline text-xs`}
     >
       <span>{title}</span>
     </div>

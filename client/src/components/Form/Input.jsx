@@ -9,7 +9,11 @@ const SetupInput = (props) => {
         {...field}
         className="bg-gray-100 rounded-md text-sgray-700 text-sm py-3 px-4 outline-none w-full"
       />
-      <ErrorMessage component="small" name={field?.name || 'unnamed'} className="text-red-500" />
+      <ErrorMessage
+        component="small"
+        name={field?.name || 'unnamed'}
+        className="text-red-500"
+      />
     </div>
   )
 }
